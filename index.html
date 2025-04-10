@@ -46,30 +46,86 @@
     ></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-gray-50 text-gray-800 font-[Poppins] scroll-smooth">
-    <!-- Navbar with animation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-5 bg-white bg-opacity-90 backdrop-blur-md shadow-md transition-all duration-300 max-h-12">
-      <div class="flex items-center space-x-4">
-        <img src="Logo (2).png" class="h-12 w-12" alt="">
-        <h1 class="md:text-2xl font-bold bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent">Amith's Portfolio</h1>
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-blur-md shadow-md transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 md:py-4">
+      <!-- Logo + Title -->
+      <div class="flex items-center space-x-3">
+        <img src="Logo (2).png" class="h-10 w-10" alt="Logo" />
+        <h1 class="text-lg md:text-2xl font-bold bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent">
+          Amith's Portfolio
+        </h1>
       </div>
-     
-      <div class="hidden md:flex space-x-6">
-        <a href="#profile" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300">Home</a>
-        <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300">Skills</a>
-        <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300">Projects</a>
-        <a href="#achievements" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300">Achievements</a>
-        <a href="#certifications" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300">Certifications</a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex space-x-6">
+        <a href="#profile" class="text-gray-700 hover:text-indigo-600 transition duration-300">Home</a>
+        <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition duration-300">Skills</a>
+        <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition duration-300">Projects</a>
+        <a href="#achievements" class="text-gray-700 hover:text-indigo-600 transition duration-300">Achievements</a>
+        <a href="#certifications" class="text-gray-700 hover:text-indigo-600 transition duration-300">Certifications</a>
       </div>
+
+      <!-- Resume Button (Desktop Only) -->
       <a
         href="/Amithkumar P Radhakrishnan Resume.pdf"
         download
-        class="bg-gradient-to-r from-indigo-600 to-sky-500 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+        class="hidden lg:inline-block ml-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white px-4 py-2 text-base rounded-md hover:shadow-lg transition duration-300 transform hover:scale-105 whitespace-nowrap"
       >
         <i class="fas fa-download mr-2"></i>Download Resume
       </a>
-    </nav>
 
+      <!-- Hamburger Button -->
+      <button  id="menuToggle" class="lg:hidden ml-3 focus:outline-none">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Links -->
+    <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4 space-y-3 text-center">
+      <a href="#profile" class="block text-gray-700 hover:text-indigo-600">Home</a>
+      <a href="#skills" class="block text-gray-700 hover:text-indigo-600">Skills</a>
+      <a href="#projects" class="block text-gray-700 hover:text-indigo-600">Projects</a>
+      <a href="#achievements" class="block text-gray-700 hover:text-indigo-600">Achievements</a>
+      <a href="#certifications" class="block text-gray-700 hover:text-indigo-600">Certifications</a>
+
+      <!-- Resume Button (Mobile Only) -->
+      <a
+        href="/Amithkumar P Radhakrishnan Resume.pdf"
+        download
+        class="inline-block bg-gradient-to-r from-indigo-600 to-sky-500 text-white px-3 py-2 text-sm rounded-md hover:shadow-lg transition duration-300 transform hover:scale-105 whitespace-nowrap"
+      >
+        <i class="fas fa-download mr-2"></i>Download Resume
+      </a>
+    </div>
+  </nav>
+
+  <!-- Toggle Script -->
+  <script>
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileLinks = document.querySelectorAll('#mobileMenu a');
+  
+    let menuOpen = false;
+  
+    // Toggle mobile menu on button click
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden');
+    });
+  
+    // Hide menu when any link is clicked
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuOpen = false;
+      });
+    });
+  </script>
+  
+  
     <!-- Enhanced Hero Section -->
     <section id="profile" class="pt-32 pb-20 px-6">
       <div class="max-w-6xl mx-auto">
@@ -111,7 +167,7 @@
               <!-- Connections -->
               <div class="mt-8 flex flex-col md:flex-row gap-6 md:gap-12 items-center justify-between">
                 <div class="flex gap-4 items-center">
-                  <p class="font-semibold md:text-xl text-gray-800">Connect:</p>
+                  <p class="font-semibold text-lg md:text-xl text-gray-800">Connect:</p>
                   <a
                     href="https://mail.google.com/mail/?view=cm&fs=1&to=amith10mnr%40gmail.com"
                     target="_blank"
@@ -132,7 +188,10 @@
 
                 <!-- Intern at -->
                 <div class="flex gap-4 items-center">
-                  <p class="font-semibold md:text-xl text-gray-800">SDE Intern at:</p>
+                  <p class="font-semibold text-lg md:text-xl text-gray-800 whitespace-nowrap">
+                    SDE Intern at:
+                  </p>
+                  
                   <a
                     href="https://www.linkedin.com/company/ss-technologies-goa/posts/?feedView=all"
                     target="_blank"
